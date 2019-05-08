@@ -7,7 +7,7 @@ VERSION = "1.1.3"
 AUTHOR = "zenoss"
 LICENSE = "GPL"
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.zenoss']
-PACKAGES = ['ZenPacks', 'ZenPacks.zenoss', 'ZenPacks.zenoss.InstalledTemplatesReport']
+PACKAGES = ['ZenPacks', 'ZenPacks.zenoss',
             'ZenPacks.zenoss.InstalledTemplatesReport']
 INSTALL_REQUIRES = []
 COMPAT_ZENOSS_VERS = ""
