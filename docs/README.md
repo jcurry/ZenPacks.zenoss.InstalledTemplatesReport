@@ -49,8 +49,9 @@ The user has the ability to view the templates by sorting through Template Name,
 
 1.1.3
 
--   Updated to distinguish Local templates on devices and make this a sort key
+-   Updated to distinguish Local templates on devices and components
 -   Removed superfluous files and directories
+
 1.1.2
 
 -   Fixed scroll position in report's layout. (ZPS-4137)
