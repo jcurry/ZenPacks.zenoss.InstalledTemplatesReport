@@ -3,11 +3,11 @@
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
 NAME = "ZenPacks.zenoss.InstalledTemplatesReport"
-VERSION = "1.1.2"
+VERSION = "1.1.3"
 AUTHOR = "zenoss"
-LICENSE = ""
+LICENSE = "GPL"
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.zenoss']
-PACKAGES = ['ZenPacks', 'ZenPacks.zenoss',
+PACKAGES = ['ZenPacks', 'ZenPacks.zenoss', 'ZenPacks.zenoss.InstalledTemplatesReport']
             'ZenPacks.zenoss.InstalledTemplatesReport']
 INSTALL_REQUIRES = []
 COMPAT_ZENOSS_VERS = ""
