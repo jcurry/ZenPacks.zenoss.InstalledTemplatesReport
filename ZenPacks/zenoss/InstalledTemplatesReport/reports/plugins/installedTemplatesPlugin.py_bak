@@ -159,13 +159,7 @@ class installedTemplatesPlugin(object):
                     ))
 
             template_list.append(template.id)
-            # Work out if this is a local template - may be device or component
-
-            #device_list.append(template.getOrganizerName())
-            tempPath = "/" + template.getRRDPath().lstrip('/Devices')
-            if tempPath.find('devices') >=0:
-                tempPath = tempPath + " LOCAL Template"
-            device_list.append(tempPath)
+            device_list.append(template.getOrganizerName())
             zenpack_list.append(zenpack_name)
             zenpack_url_list.append(zenpack_url)
             description_map.append(template.description)
