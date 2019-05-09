@@ -9,7 +9,7 @@ The InstalledTemplatesReport ZenPack provides a report of all the Monitoring Tem
 
 
 
-Version 1.1.4 - <a rel="nofollow" class="external" href="https://github.com/jcurry/ZenPacks.zenoss.InstalledTemplatesReport/blob/cw1.1.4master/dist/ZenPacks.zenoss.InstalledTemplatesReport-1.1.4-py2.7.egg?raw=true">Download</a>
+Version 1.1.4 - <a rel="nofollow" class="external" href="https://github.com/jcurry/ZenPacks.zenoss.InstalledTemplatesReport/blob/1.1.4/dist/ZenPacks.zenoss.InstalledTemplatesReport-1.1.4-py2.7.egg?raw=true">Download</a>
 
 
 Version 1.1.3- <a rel="nofollow" class="external" href="http://wiki.zenoss.org/download/zenpacks/ZenPacks.zenoss.InstalledTemplatesReport/1.1.2/ZenPacks.zenoss.InstalledTemplatesReport-1.1.2.egg">Download</a>
