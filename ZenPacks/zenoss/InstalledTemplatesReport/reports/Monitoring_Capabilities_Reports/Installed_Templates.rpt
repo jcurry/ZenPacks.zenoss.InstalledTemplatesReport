@@ -73,10 +73,15 @@ $(document).ready(function(){
             hmtl_content = $('#device_data').html();
             data = 'Device_Class';
         }
+        else if(data=='Template Name')
+        {
+            hmtl_content = $('#template_data').html();
+            data = 'Template_Name';
+        }
         else
         {
-            data = 'Template_Name'
-            hmtl_content = $('#template_data').html();
+            data = 'LOCAL_Templates'
+            hmtl_content = $('#LOCAL_data').html();
 
         }
          var doc = new jsPDF();
@@ -121,6 +126,7 @@ $(document).ready(function(){
                             <li><a data-toggle="tab" href="#template_category"><span class="t">Template Name</span></a></li>
                             <li><a data-toggle="tab" href="#zenpack_category"><span class="t">ZenPack Name</span></a></li>
                             <li><a data-toggle="tab" href="#device_category"><span class="t">Device Class</span></a></li>
+                            <li><a data-toggle="tab" href="#local_category"><span class="t">LOCAL Templates</span></a></li>
                         </tal:block>
                     </ul>
                 </li>
@@ -154,6 +160,7 @@ $(document).ready(function(){
                             <hr>
                             <p class="paragraph"><strong>Device Class: </strong><em tal:content="r/secondary"/></p>
                             <p class="paragraph"><strong>ZenPack Name: </strong><em tal:content="r/tertiary"/></p>
+                            <p class="paragraph"><strong>LOCAL Template ?: </strong><em tal:content="r/fourth"/></p>
                             <p class="paragraph" tal:condition = "r/template_description"><strong>Description:</strong> <em tal:content="r/template_description"/></p>
 
 
@@ -222,6 +229,7 @@ $(document).ready(function(){
                             <hr>
                             <p class="paragraph"><strong>Template Name: </strong><em tal:content="r/secondary"/></p>
                             <p class="paragraph"><strong>ZenPack Name: </strong><em tal:content="r/tertiary"/></p>
+                            <p class="paragraph"><strong>LOCAL Template ?: </strong><em tal:content="r/fourth"/></p>
                             <p class="paragraph" tal:condition = "r/template_description"><strong>Description:</strong> <em tal:content="r/template_description"/></p>
 
 
@@ -290,6 +298,7 @@ $(document).ready(function(){
                             <hr>
                             <p class="paragraph"><strong>Template Name: </strong><em tal:content="r/secondary"/></p>
                             <p class="paragraph"><strong>Device Class: </strong><em tal:content="r/tertiary"/></p>
+                            <p class="paragraph"><strong>LOCAL Template ?: </strong><em tal:content="r/fourth"/></p>
                             <p class="paragraph" tal:condition = "r/template_description"><strong>Description:</strong> <em tal:content="r/template_description"/></p>
 
 
@@ -333,6 +342,77 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
+
+        <!-- LOCAL Category -->
+
+        <div id="local_category" class="tab-pane fade">
+            <div class="col-xs-3 zen-category-sidebar">
+                <ul class="nav nav-tabs nav-stacked fixed">
+                    <h4>Local Templates: Table of Contents</h4>
+                    <tal:block tal:repeat="t objects">
+                        <tal:block tal:repeat="r t/local_sort">
+                            <li tal:condition="r/primary"><a href="?" tal:attributes="href string:#${r/primary}"><span tal:content="r/primary"/></a>
+                            </li>
+                        </tal:block>
+                    </tal:block>
+                </ul>
+            </div>
+            <div class="col-xs-9 col-xs-offset-3">
+                <div id = "LOCAL_data" class="bs-docs-content">
+                    <tal:block tal:repeat="t objects">
+
+                        <tal:block tal:repeat="r t/local_sort">
+
+                            <h3 id="?" tal:attributes="id string:${r/primary}" class="group" style = " padding-top: 60px; margin-top: -60px;"><strong tal:content="r/primary"/></h3>
+                            <hr>
+                            <p class="paragraph"><strong>Device Class: </strong><em tal:content="r/secondary"/></p>
+                            <p class="paragraph"><strong>Template Name: </strong><em tal:content="r/tertiary"/></p>
+                            <p class="paragraph"><strong>ZenPack Name: </strong><em tal:content="r/fourth"/></p>
+                            <p class="paragraph" tal:condition = "r/template_localFlag"><strong>LOCAL / CLASS:</strong> <em tal:content="r/template_localFlag"/></p>
+                            <p class="paragraph" tal:condition = "r/template_description"><strong>Description:</strong> <em tal:content="r/template_description"/></p>
+
+
+                            <p tal:condition = "r/datasources_info"><strong>Data Sources:</strong></p>
+                            <!-- DataSources -->
+                            <tal:block tal:repeat="ds r/datasources_info">
+                                <p class="paragraph">DataSource: <em tal:content="ds/datasource_id"/>;&nbsp;&nbsp; SSH Enabled: <em tal:content="ds/datasource_ssh_enabled"/>;&nbsp;&nbsp; Type: <em tal:content="ds/datasource_type"/></p>
+                                <p class="paragraph" tyle = "margin-left: 22px;" tal:condition="ds/datasource_description"> Description: <em tal:content="ds/datasource_description"/></p>
+
+                                 <tal:block tal:repeat="dp ds/datapoints_info">
+                                    <p style = "margin-left: 44px;"> DataPoint: <em tal:content="dp/datapoint_id"/>;&nbsp;&nbsp; Type: <em tal:content="dp/datapoint_type"/></p>
+                                    <p style = "margin-left: 72px;" tal:condition="dp/datapoint_description"> Description: <em tal:content="dp/datapoint_description"/></p>
+                                 </tal:block>
+                            </tal:block>
+
+
+                            <p tal:condition = "r/thresholds_info"><strong>Thresholds:</strong></p>
+                            <!-- Thresholds -->
+                            <tal:block tal:repeat="th r/thresholds_info">
+                                <p class="paragraph">Name: <em tal:content="th/threshold_id"/>;&nbsp;&nbsp;Type: <em tal:content="th/threshold_type"/><span tal:condition="th/threshold_min">;&nbsp;&nbsp; Min: <em tal:content="th/threshold_min"/></span><span tal:condition="th/threshold_max">;&nbsp;&nbsp;Max: <em tal:content="th/threshold_max"/></span></p>
+                                <p style = "margin-left: 22px;" tal:condition="th/threshold_description">Description: <em tal:content="th/threshold_description"/></p>
+                            </tal:block>
+
+
+                            <p tal:condition = "r/graphdefs_info"><strong>Graph Definitions:</strong></p>
+                            <!-- GraphDefs -->
+                            <tal:block tal:repeat="gd r/graphdefs_info">
+                                <p class="paragraph">Name: <em tal:content="gd/graphDef_id"/><span tal:condition="gd/graphDef_unit">; &nbsp; Unit: <em tal:content="gd/graphDef_unit"/></span></p>
+                                <p class="paragraph" style = "margin-left: 22px;" tal:condition="gd/graphDef_description"> Description: <em tal:content="gd/graphDef_description"/></p>
+                                    <tal:block tal:repeat="gp gd/graphpoints_info">
+                                        <p>&nbsp;&nbsp; GraphPoints: <em tal:content="gp/graphPoint_id"/>; &nbsp; Type: <em tal:content="gp/graphPoint_type"/></p>
+                                        <p style = "margin-left: 72px;" tal:condition="gp/graphPoint_description"> Description: <em tal:content="gp/graphPoint_description"/></p>
+                                    </tal:block>
+                            </tal:block>
+
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+
+                        </tal:block>
+                    </tal:block>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 </body>

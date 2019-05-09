@@ -13,7 +13,7 @@ class installedTemplatesPlugin(object):
         return sorted_list
     """
 
-    def sort_template_list(self, primary_sort, secondary_sort, tertiary,
+    def sort_template_list(self, primary_sort, secondary_sort, tertiary, fourth, localFlag,
                            description, dsmap, thmap, gdmap, url):
         output = []
         temp_list = []
@@ -37,6 +37,8 @@ class installedTemplatesPlugin(object):
                 primary.append(None)
 
         tertiary = [tertiary[x] for x in sort_index]
+        fourth = [fourth[x] for x in sort_index]
+        localFlag = [localFlag[x] for x in sort_index]
         description = [description[x] for x in sort_index]
         dsmap = [dsmap[x] for x in sort_index]
         thmap = [thmap[x] for x in sort_index]
@@ -48,6 +50,8 @@ class installedTemplatesPlugin(object):
                 primary=primary[x],
                 secondary=secondary[x],
                 tertiary=tertiary[x],
+                fourth=fourth[x],
+                template_localFlag=localFlag[x],
                 template_description=description[x],
                 datasources_info=dsmap[x],
                 thresholds_info=thmap[x],
@@ -61,11 +65,12 @@ class installedTemplatesPlugin(object):
     def run(self, dmd, args):
         report = []
 
-        # Place template, device and zenpack in list to help categorize in
+        # Place template, device, zenpack and local in list to help categorize in
         # future (by sorting)
         template_list = []
         device_list = []
         zenpack_list = []
+        local_list = []
 
         description_map = []
         datasource_map = []
@@ -160,33 +165,39 @@ class installedTemplatesPlugin(object):
 
             template_list.append(template.id)
             # Work out if this is a local template - may be device or component
-
-            #device_list.append(template.getOrganizerName())
             tempPath = "/" + template.getRRDPath().lstrip('/Devices')
             if tempPath.find('devices') >=0:
                 tempPath = tempPath + " LOCAL Template"
+                localFlag = 'LOCAL'
+            else:
+                localFlag = 'CLASS'
             device_list.append(tempPath)
             zenpack_list.append(zenpack_name)
             zenpack_url_list.append(zenpack_url)
+            local_list.append(localFlag)
             description_map.append(template.description)
             datasource_map.append(datasources_list)
             threshold_map.append(thresholds_list)
             graphdef_map.append(graphdefs_list)
 
         template_srt = self.sort_template_list(
-            template_list, device_list, zenpack_list, description_map,
+            template_list, device_list, zenpack_list, local_list, local_list, description_map,
             datasource_map, threshold_map, graphdef_map, zenpack_url_list)
         device_srt = self.sort_template_list(
-            device_list, template_list, zenpack_list, description_map,
+            device_list, template_list, zenpack_list, local_list, local_list, description_map,
             datasource_map, threshold_map, graphdef_map, zenpack_url_list)
         zenpack_srt = self.sort_template_list(
-            zenpack_list, template_list, device_list, description_map,
+            zenpack_list, template_list, device_list, local_list, local_list, description_map,
+            datasource_map, threshold_map, graphdef_map, zenpack_url_list)
+        local_srt = self.sort_template_list(
+            local_list, device_list, template_list, zenpack_list, local_list, description_map,
             datasource_map, threshold_map, graphdef_map, zenpack_url_list)
 
         report.append(Record(
             template_sort=template_srt,
             device_sort=device_srt,
             zenpack_sort=zenpack_srt,
+            local_sort=local_srt,
         ))
 
         return report

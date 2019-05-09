@@ -7,6 +7,11 @@ The InstalledTemplatesReport ZenPack provides a report of all the Monitoring Tem
 
 ## Releases
 
+
+
+Version 1.1.4 - <a rel="nofollow" class="external" href="https://github.com/jcurry/ZenPacks.zenoss.InstalledTemplatesReport/blob/cw1.1.4master/dist/ZenPacks.zenoss.InstalledTemplatesReport-1.1.4-py2.7.egg?raw=true">Download</a>
+
+
 Version 1.1.3- <a rel="nofollow" class="external" href="http://wiki.zenoss.org/download/zenpacks/ZenPacks.zenoss.InstalledTemplatesReport/1.1.2/ZenPacks.zenoss.InstalledTemplatesReport-1.1.2.egg">Download</a>
 : Released on 2019/05/09 by Jane Curry
 : Compatible with Zenoss 4.2.5, 6.2.x, 6.3.x and Zenoss Cloud</dd>
@@ -22,18 +27,19 @@ The ZenPack provides a report of all the Monitoring Templates installed in a Zen
 - Template Name
 - Device Class
 - ZenPack Name
+- Local device template or Class template
 - Datasources
 - Thresholds
 - Graph Definitions
 
-The user has the ability to view the templates by sorting through Template Name, Device Class or ZenPack Name.
+The user has the ability to view the templates by sorting through Template Name, Device Class, ZenPack Name and Local flag.
 
 ## Usage
 
 1. Click Reports.
 2. Under Reports, expand Monitoring Capabilities Reports.
 3. Select Installed Templates to generate a report for all Templates in your Zenoss instance.
-4. Click "Sort By:" to sort templates by Template Name, ZenPack Name or Device Class. The default view is a sort by Template Name.
+4. Click "Sort By:" to sort templates by Template Name, ZenPack Name, Device Class or LOCAL Templates. The default view is a sort by Template Name.
 5. Click "Export" to export current view in the right pane to a PDF file.
 
 <br clear=all>
@@ -49,7 +55,7 @@ The user has the ability to view the templates by sorting through Template Name,
 
 1.1.3
 
--   Updated to distinguish Local templates on devices and components
+-   Updated to distinguish Local templates on devices and components and to provide LOCAL Templates as Sort option
 -   Removed superfluous files and directories
 
 1.1.2
