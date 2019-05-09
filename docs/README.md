@@ -31,6 +31,11 @@ The ZenPack provides a report of all the Monitoring Templates installed in a Zen
 
 The user has the ability to view the templates by sorting through Template Name, Device Class, ZenPack Name and Local flag.
 
+## Installation Considerations
+
+It is only necessary to restart the zopectl process (Zenoss 4 Core ) or the webserver process (Zenoss 4 SD) or the zope service (Zenoss 6).
+
+
 ## Usage
 
 1. Click Reports.
