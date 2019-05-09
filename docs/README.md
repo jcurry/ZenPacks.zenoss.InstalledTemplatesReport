@@ -7,14 +7,11 @@ The InstalledTemplatesReport ZenPack provides a report of all the Monitoring Tem
 
 ## Releases
 
-
-
 Version 1.1.4 - <a rel="nofollow" class="external" href="https://github.com/jcurry/ZenPacks.zenoss.InstalledTemplatesReport/blob/1.1.4/dist/ZenPacks.zenoss.InstalledTemplatesReport-1.1.4-py2.7.egg?raw=true">Download</a>
-
-
-Version 1.1.3- <a rel="nofollow" class="external" href="http://wiki.zenoss.org/download/zenpacks/ZenPacks.zenoss.InstalledTemplatesReport/1.1.2/ZenPacks.zenoss.InstalledTemplatesReport-1.1.2.egg">Download</a>
 : Released on 2019/05/09 by Jane Curry
 : Compatible with Zenoss 4.2.5, 6.2.x, 6.3.x and Zenoss Cloud</dd>
+
+Version 1.1.3 - development version for Jane - now superceded
 
 Version 1.1.2- <a rel="nofollow" class="external" href="http://wiki.zenoss.org/download/zenpacks/ZenPacks.zenoss.InstalledTemplatesReport/1.1.2/ZenPacks.zenoss.InstalledTemplatesReport-1.1.2.egg">Download</a>
 : Released on 2018/12/05
@@ -46,17 +43,21 @@ The user has the ability to view the templates by sorting through Template Name,
 
 ## Sample Report
 
-[Report_Example.png]: /sites/default/files/zenpack/Installed%20Templates%20Report/Report_Example.png
-[![][Report_Example.png]][Report_Example.png]
+See the screenshots directory for a sample report
+
 
 <br clear=all>
 
 ## Changes
 
-1.1.3
+1.1.4
 
 -   Updated to distinguish Local templates on devices and components and to provide LOCAL Templates as Sort option
 -   Removed superfluous files and directories
+
+1.1.3
+
+-   Development version for Jane - now superceded
 
 1.1.2
 
