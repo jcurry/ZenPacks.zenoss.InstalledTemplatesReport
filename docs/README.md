@@ -39,14 +39,11 @@ The user has the ability to view the templates by sorting through Template Name,
 4. Click "Sort By:" to sort templates by Template Name, ZenPack Name, Device Class or LOCAL Templates. The default view is a sort by Template Name.
 5. Click "Export" to export current view in the right pane to a PDF file.
 
-<br clear=all>
 
 ## Sample Report
 
 See the screenshots directory for a sample report
 
-
-<br clear=all>
 
 ## Changes
 
